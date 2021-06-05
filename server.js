@@ -2,7 +2,11 @@ const express = require("express");
 const app = express();
 const server = require("http").Server(app);
 const { v4: uuidv4 } = require("uuid");
-const io = require("socket.io")(server);
+const io = require("socket.io")(server, {
+  cors: {
+    origin: '*'
+  }
+});
 const path = require( 'path' );
 const favicon = require( 'serve-favicon' );
 const mysql = require('mysql');
@@ -18,10 +22,14 @@ const peerServer = ExpressPeerServer(server, {
 
 
 const conn = mysql.createConnection({
-  host: 'localhost', 
-  user: 'fajrun',      
-  password: '123',      
-  database: 'fajrun' 
+  // host: 'localhost', 
+  // user: 'fajrun',      
+  // password: '123',      
+  // database: 'fajrun' 
+  host: 'remotemysql.com', 
+  user: 'kByJYcUEI2',      
+  password: 'aGvcxxEmcm',      
+  database: 'kByJYcUEI2' 
 }); 
 conn.connect(function(err) {
   if (err) throw err;
@@ -30,7 +38,7 @@ conn.connect(function(err) {
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
-//app.use( favicon( path.join( __dirname, 'favicon.ico' ) ) );
+app.use( favicon( path.join( __dirname, 'favicon.ico' ) ) );
 //app.use( '/public', express.static( path.join( __dirname, 'public' ) ) );
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -45,7 +53,7 @@ app.post('/tambah',(req, res) => {
   let sql = "INSERT INTO webrtc SET ?";
   let query = conn.query(sql, data,(err, results) => {
     if(err) throw err;
-   res.redirect('/')
+   res.redirect('/r')
   });
 });
 
