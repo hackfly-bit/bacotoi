@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HOME</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="app.css" />
+    <script src="/socket.io/socket.io.js"></script>
+
+  </head>
+  <body>
+      
+  
+      <div
+        class="container-fluid"
+        style="
+          height: 100vh;
+          background-image: url('img/MacBook\ -\ 4.png');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+        "
+        id="room-create"
+      >
+      <ul class="nav justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link active" href="#"> ---> </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"> ---> </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/data">Data Tamu</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"> <--- </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="#"> <--- </a>
+        </li>
+      </ul>
+        <div class="center">
+          <div class="row">
+            <div class="col-12 h2 text-center">
+              <img src="img/gambar1.png" class="rounded" alt="..." />
+            </div>
+            <div class="col-12 h2 mt-5 text-center">Plaform Berbagi Keceriaan</div>
+          </div>
+          <div class="container ket">
+            <div class="row">
+              <div class="col">
+          
+              </div>
+              <div class="col-9 ">
+                <p class="text-center " style="line-height: 30px; font-family: open sans; "><span style="font-size: 18px; font-weight: 600;">BacotOi</span> program perangkat lunak berpemilik videotelepon yang dikembangkan oleh tim kami . Paket gratis menyediakan layanan obrolan video yang memungkinkan hingga 5 peserta secara bersamaan, dengan batasan waktu 30 menit. Pengguna memiliki opsi untuk meningkatkan dengan berlangganan paket berbayar.  <br> <br>Selama COVID-19 pandemi , ada peningkatan besar dalam penggunaan Video Telelpon untuk kerja jarak jauh , pendidikan jarak jauh , dan secara online hubungan sosial . Peningkatan tersebut menjadikan kami membuat aplikasi Video telepon jarak jauh yang baik dan simpel.</p>
+              </div>
+              <div class="col">
+       
+              </div>
+            </div>
+          </div>
+              <div class="col-12 col-md-4 offset-md-4 mb-3">
+                <button
+                  type="button"
+                  class="btn btn-block rounded-1"
+                  style="color: #01fce7; background-color: #000"
+                  data-bs-toggle="modal" data-bs-target="#exampleModal"
+                >
+                  Gas la !
+                </button>
+              </div>
+              <div
+                class="col-12 col-md-4 offset-md-4 mb-3"
+                id="room-created"
+              ></div>
+            </div>
+          </div>
+  
+  
+  
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Isi Dulu Baru Masuk</h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <form action="/tambah" method="POST" id="form">
+                    <div class="form-group row">
+                      <label for="nama" class="col-4 col-form-label">Nama</label>
+                      <div class="col-8">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <div class="input-group-text">
+                              <i class="fa fa-address-card"></i>
+                            </div>
+                          </div>
+                          <input
+                            id="nama"
+                            name="nama"
+                            placeholder="Nama"
+                            type="text"
+                            class="form-control"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="email" class="col-4 col-form-label"
+                        >Email</label
+                      >
+                      <div class="col-8">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <div class="input-group-text">
+                              <i class="fa fa-envelope"></i>
+                            </div>
+                          </div>
+                          <input
+                            id="email"
+                            name="email"
+                            placeholder="Email"
+                            type="text"
+                            class="form-control"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-4">Jenis Kelamin</label>
+                      <div class="col-8">
+                        <div
+                          class="custom-control custom-checkbox custom-control-inline"
+                        >
+                          <input
+                            name="checkbox"
+                            id="checkbox_0"
+                            type="checkbox"
+                            class="custom-control-input"
+                            value="laki-laki"
+                          />
+                          <label for="checkbox_0" class="custom-control-label"
+                            >Laki - Laki</label
+                          >
+                        </div>
+                        <div
+                          class="custom-control custom-checkbox custom-control-inline"
+                        >
+                          <input
+                            name="checkbox"
+                            id="checkbox_1"
+                            type="checkbox"
+                            class="custom-control-input"
+                            value="perempuan"
+                          />
+                          <label for="checkbox_1" class="custom-control-label"
+                            >Perempuan</label
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="textarea" class="col-4 col-form-label"
+                        >Kritik Dan Saran</label
+                      >
+                      <div class="col-8">
+                        <textarea
+                          id="textarea"
+                          name="textarea"
+                          cols="40"
+                          rows="5"
+                          aria-describedby="textareaHelpBlock"
+                          required="required"
+                          class="form-control"
+                        ></textarea>
+                        <span id="textareaHelpBlock" class="form-text text-muted"
+                          >Tulis kritik dan saran</span
+                        >
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <div class="offset-4 col-8">
+                        <button
+                          name="submit"
+                          type="submit"
+                          class="btn btn-primary"
+                          data-dismiss="modal"
+                        >
+                          Kirim
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+  
+                 
+  
+                  <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      
+    
+      <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+        crossorigin="anonymous"
+      ></script>
+  </body>
+</html>
