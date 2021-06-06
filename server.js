@@ -24,16 +24,16 @@ const peerServer = ExpressPeerServer(server, {
 const conn = mysql.createConnection({
 
   //local
-  host: 'localhost', 
-  user: 'fajrun',      
-  password: '123',      
-  database: 'fajrun' 
+  // host: 'localhost', 
+  // user: 'fajrun',      
+  // password: '123',      
+  // database: 'fajrun' 
 
   //server
-  // host: 'remotemysql.com', 
-  // user: 'kByJYcUEI2',      
-  // password: 'aGvcxxEmcm',      
-  // database: 'kByJYcUEI2' 
+  host: 'remotemysql.com', 
+  user: 'kByJYcUEI2',      
+  password: 'aGvcxxEmcm',      
+  database: 'kByJYcUEI2' 
 }); 
 conn.connect(function(err) {
   if (err) throw err;
