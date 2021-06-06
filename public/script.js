@@ -25,9 +25,9 @@ var peer = new Peer(undefined, {
   path: "/peerjs",
   host: "/",
   port: "443",
-  // config: {
-  //   iceServers: [{   urls: [ "stun:ss-turn2.xirsys.com" ]}, {   username: "H-MNUUHou-RC8zHoLJekN4VREVSG5_umvH-TlPdbY_jDIC0LREsVCcFaN3PT1z8rAAAAAGBVsulmYWpydW4=",   credential: "af98ed5c-8956-11eb-8c81-0242ac140004",   urls: [       "turn:ss-turn2.xirsys.com:80?transport=udp",       "turn:ss-turn2.xirsys.com:3478?transport=udp",       "turn:ss-turn2.xirsys.com:80?transport=tcp",       "turn:ss-turn2.xirsys.com:3478?transport=tcp",       "turns:ss-turn2.xirsys.com:443?transport=tcp",       "turns:ss-turn2.xirsys.com:5349?transport=tcp"   ]}]
-  // }
+  config: {
+    iceServers: [{   urls: [ "stun:ss-turn2.xirsys.com" ]}, {   username: "H-MNUUHou-RC8zHoLJekN4VREVSG5_umvH-TlPdbY_jDIC0LREsVCcFaN3PT1z8rAAAAAGBVsulmYWpydW4=",   credential: "af98ed5c-8956-11eb-8c81-0242ac140004",   urls: [       "turn:ss-turn2.xirsys.com:80?transport=udp",       "turn:ss-turn2.xirsys.com:3478?transport=udp",       "turn:ss-turn2.xirsys.com:80?transport=tcp",       "turn:ss-turn2.xirsys.com:3478?transport=tcp",       "turns:ss-turn2.xirsys.com:443?transport=tcp",       "turns:ss-turn2.xirsys.com:5349?transport=tcp"   ]}]
+  }
 });
 
 let myVideoStream;
