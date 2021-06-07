@@ -30,10 +30,10 @@ const conn = mysql.createConnection({
   // database: 'fajrun' 
 
   //server
-  host: 'remotemysql.com', 
-  user: 'kByJYcUEI2',      
-  password: 'aGvcxxEmcm',      
-  database: 'kByJYcUEI2' 
+  host: 'us-cdbr-east-04.cleardb.com', 
+  user: 'b89b9a8311489b',      
+  password: '0c4523bd',      
+  database: 'heroku_56f77d080822736' 
 }); 
 conn.connect(function(err) {
   if (err) throw err;
